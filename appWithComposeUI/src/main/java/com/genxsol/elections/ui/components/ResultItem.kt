@@ -53,7 +53,7 @@ fun ResultItem(result: ResultUiState, complete: Boolean, onItemClick: (String) -
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     // Adjust padding for touch target size
-                    Column(modifier = Modifier.padding(vertical = 8.dp)) {
+                    Column(modifier = Modifier.padding(vertical = 4.dp)) {
                         Title(
                             stringResource(id = R.string.results_party, result.party),
                             bold = true
@@ -76,7 +76,7 @@ fun Title(title: String, bold: Boolean = false) {
         text = title,
         maxLines = 1,
         overflow = TextOverflow.Ellipsis,
-        modifier = Modifier.padding(8.dp),
+        modifier = Modifier.padding(4.dp),
         style = if (bold) {
             MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
         } else {
