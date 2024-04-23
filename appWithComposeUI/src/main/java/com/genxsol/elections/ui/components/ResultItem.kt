@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -29,6 +28,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.genxsol.elections.R
@@ -41,10 +41,10 @@ fun ResultItem(result: ResultUiState, complete: Boolean, onItemClick: (String) -
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
-            .clickable { onItemClick(result.party) }
+            .clickable { onItemClick(result.candidate) }
     ) {
         Column(
-            modifier = Modifier.padding(8.dp),
+            modifier = Modifier.padding(4.dp),
         ) {
             Box {
                 Row(
@@ -53,26 +53,35 @@ fun ResultItem(result: ResultUiState, complete: Boolean, onItemClick: (String) -
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Column(modifier = Modifier.padding(vertical = 5.dp)) {
-                        Text(
-                            text = stringResource(id = R.string.results_party, result.party),
-                            fontWeight = FontWeight.Bold
+                        Title(
+                            stringResource(id = R.string.results_party, result.party),
+                            bold = true
                         )
-                        Text(
-                            text = stringResource(id = R.string.results_candidate, result.candidate)
-                        )
-                        Text(
-                            text = stringResource(id = R.string.results_votes, result.votes)
-                        )
+                        Title(stringResource(id = R.string.results_candidate, result.candidate))
+                        Title(stringResource(id = R.string.results_votes, result.votes))
                     }
                     if (complete && result.leading) {
                         WinnerBadge()
-                    } else {
-                        Spacer(modifier = Modifier.width(8.dp)) // Adjust the space as needed
                     }
                 }
             }
         }
     }
+}
+
+@Composable
+fun Title(title: String, bold: Boolean = false) {
+    Text(
+        text = title,
+        maxLines = 1,
+        overflow = TextOverflow.Ellipsis,
+        modifier = Modifier.padding(4.dp),
+        style = if (bold) {
+            MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+        } else {
+            MaterialTheme.typography.titleMedium
+        }
+    )
 }
 
 @Composable
@@ -110,4 +119,16 @@ fun WinnerBadge() {
             modifier = Modifier.padding(start = 4.dp)
         )
     }
+}
+
+@Preview
+@Composable
+fun ResultItemPreview() {
+    val result = ResultUiState(
+        party = "Party ABC",
+        candidate = "John Doe",
+        votes = "1000",
+        leading = true
+    )
+    ResultItem(result = result, complete = true) {}
 }
