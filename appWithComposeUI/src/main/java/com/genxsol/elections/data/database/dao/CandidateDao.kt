@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
-import com.genxsol.elections.api.Candidate
 import com.genxsol.elections.data.database.entity.CandidateEntity
 import kotlinx.coroutines.flow.Flow
 

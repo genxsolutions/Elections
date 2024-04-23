@@ -88,17 +88,6 @@ fun PartyImage(urlToImage: String, title: String?) {
 }
 
 @Composable
-fun Title(title: String) {
-    Text(
-        text = title,
-        maxLines = 1,
-        overflow = TextOverflow.Ellipsis,
-        modifier = Modifier.padding(8.dp),
-        style = MaterialTheme.typography.titleMedium
-    )
-}
-
-@Composable
 fun WinnerBadge() {
     Row(verticalAlignment = Alignment.CenterVertically) {
         Box(
