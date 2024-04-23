@@ -28,7 +28,6 @@ fun AnimatedResultItem(
         exit = fadeOut(),
         modifier = Modifier
             .animateContentSize()
-            .padding(vertical = 4.dp)
     ) {
         ResultItem(result, complete) { description ->
             itemClicked(description)

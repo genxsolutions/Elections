@@ -44,7 +44,7 @@ fun ResultItem(result: ResultUiState, complete: Boolean, onItemClick: (String) -
             .clickable { onItemClick(result.candidate) }
     ) {
         Column(
-            modifier = Modifier.padding(4.dp),
+            modifier = Modifier.padding(8.dp),
         ) {
             Box {
                 Row(
@@ -52,7 +52,8 @@ fun ResultItem(result: ResultUiState, complete: Boolean, onItemClick: (String) -
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Column(modifier = Modifier.padding(vertical = 5.dp)) {
+                    // Adjust padding for touch target size
+                    Column(modifier = Modifier.padding(vertical = 8.dp)) {
                         Title(
                             stringResource(id = R.string.results_party, result.party),
                             bold = true
@@ -75,7 +76,7 @@ fun Title(title: String, bold: Boolean = false) {
         text = title,
         maxLines = 1,
         overflow = TextOverflow.Ellipsis,
-        modifier = Modifier.padding(4.dp),
+        modifier = Modifier.padding(8.dp),
         style = if (bold) {
             MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
         } else {
@@ -88,8 +89,8 @@ fun Title(title: String, bold: Boolean = false) {
 fun PartyImage(urlToImage: String, title: String?) {
     AsyncImage(
         model = urlToImage,
-        error = painterResource(R.drawable.ic_icon),
-        placeholder = painterResource(R.drawable.ic_icon),
+        error = painterResource(R.drawable.ic_launcher_foreground),
+        placeholder = painterResource(R.drawable.ic_launcher_foreground),
         contentDescription = title,
         contentScale = ContentScale.Crop,
         modifier = Modifier.width(150.dp)
