@@ -62,4 +62,3 @@ dependencies {
     androidTestImplementation(CentralDependencies.junitExt)
     androidTestImplementation(CentralDependencies.espressoCore)
 }
-}
