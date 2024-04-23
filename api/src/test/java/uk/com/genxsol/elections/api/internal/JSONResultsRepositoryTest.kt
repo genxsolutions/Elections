@@ -1,4 +1,4 @@
-package uk.co.bbc.elections.api.internal
+package uk.com.genxsol.elections.api.internal
 
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert

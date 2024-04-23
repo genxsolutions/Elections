@@ -1,4 +1,4 @@
-package uk.co.bbc.elections.api.internal
+package com.genxsol.elections.api.internal
 
 internal object JsonStrings {
     val candidatesJson = """

@@ -1,14 +1,13 @@
-package uk.co.bbc.elections.api.internal
+package com.genxsol.elections.api.internal
 
+import com.genxsol.elections.api.Results
 import kotlinx.coroutines.delay
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import uk.co.bbc.elections.api.Candidate
-import uk.co.bbc.elections.api.Result
-import uk.co.bbc.elections.api.Results
-import uk.co.bbc.elections.api.ResultsRepository
+import com.genxsol.elections.api.Candidate
+import com.genxsol.elections.api.Result
+import com.genxsol.elections.api.ResultsRepository
 import kotlin.random.Random
-import kotlin.random.nextInt
 
 /*
  * This implementation of ResultsRepository is provided as a working data source

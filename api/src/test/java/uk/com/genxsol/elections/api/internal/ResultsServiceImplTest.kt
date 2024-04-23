@@ -1,10 +1,10 @@
-package uk.co.bbc.elections.api.internal
+package uk.com.genxsol.elections.api.internal
 
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import uk.co.bbc.elections.api.*
+import uk.com.genxsol.elections.api.*
 
 class ResultsServiceImplTest {
 

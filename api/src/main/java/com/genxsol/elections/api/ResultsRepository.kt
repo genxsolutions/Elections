@@ -1,4 +1,4 @@
-package uk.co.bbc.elections.api
+package com.genxsol.elections.api
 
 interface ResultsRepository {
     suspend fun latestResults(): Results

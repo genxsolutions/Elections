@@ -1,4 +1,4 @@
-package uk.co.bbc.elections.api
+package com.genxsol.elections.api
 
 /**
  * Provides up-to-date election results.
@@ -16,6 +16,6 @@ interface ResultsService {
      */
     @Throws(ResultsRepositoryException::class)
     suspend fun latestResults(): Results
-
+    suspend fun allCandidates(): List<Candidate>
 }
 

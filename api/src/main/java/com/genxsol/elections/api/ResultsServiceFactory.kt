@@ -1,6 +1,6 @@
-package uk.co.bbc.elections.api
+package com.genxsol.elections.api
 
-import uk.co.bbc.elections.api.internal.JSONResultsRepository
+import com.genxsol.elections.api.internal.JSONResultsRepository
 
 /**
  * Factory to create a new ResultsService ready for use.

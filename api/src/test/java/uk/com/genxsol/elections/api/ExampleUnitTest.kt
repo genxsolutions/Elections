@@ -1,4 +1,4 @@
-package uk.co.bbc.elections.api
+package uk.com.genxsol.elections.api
 
 import org.junit.Test
 
