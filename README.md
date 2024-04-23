@@ -1,35 +1,120 @@
-Android Technical Assessment
----
+# ElectionsApp
 
-This is a mobile client for a mock elections system which could show results pages similar to how BBC News covers elections. 
-**Note:** If you are not familiar with how elections work in the UK, please see this short BBC video https://www.youtube.com/watch?v=cRxUhGetEPQ
+Welcome to ElectionsApp, presents list of candidates with their poll votes sorted by winner, built with MVVM architecture and Jetpack Compose.
+
+## Major Highlights
+
+- **Jetpack Compose** for modern UI
+- **MVVM architecture** for a clean and scalable codebase
+- **Kotlin** and **Kotlin DSL**
+- **Dagger Hilt** for efficient dependency injection.
+- **Retrofit** for seamless networking
+- **Coroutines** and **Flow** for asynchronous programming
+- **StateFlow** for streamlined state management
+- **Unit tests** and **UI tests** for robust code coverage
+- **Navigation** for smooth transitions between screens
+- **Coil** for efficient image loading
+- **Pull to refresh** for refreshing the contents
+
+<p align="center">
+<img alt="screenshots"  src="https://github.com/genxsolutions/Elections/blob/main/assets/Elections_app_architecture.jpeg">
+</p>
+
+## Features Implemented
+
+- Show list of poll results
+- show popup to show candidate name - just for the sake of 2nd screen flow
+- pull to refresh
+- floating button to refresh
+- show winner when counting completes 
+- hide refresh button when counting completes
+- Room database for candidates to avoid loading again
+- no network and error screen with retry functionality
+- accessibility support
+- dark and light mode support
+- config change handling
+- central dependency management
+- modularised concept
+
+## Features planned as backlog
+- **Pagination** to efficiently load and display polling results 
+- **Offline caching** with a **single source of truth**
+- **work manager** for background caching
+- **version catalogs** centralised dependency system 
+- detailed testing and handling the low memory and restart scenarios 
+
+## Dependency Use
+
+- Jetpack Compose for UI: Modern UI toolkit for building native Android UIs
+- Coil for Image Loading: Efficiently loads and caches images
+- Retrofit for Networking: A type-safe HTTP client for smooth network requests
+- Dagger Hilt for Dependency Injection: Simplifies dependency injection
+- Mockito, JUnit, Turbine for Testing: Ensures the reliability of the application
+
+## How to Run the Project
+
+- Clone the Repository:
+```
+git clone https://github.com/genxsolutions/Elections.git
+cd Elections
+```
+- Build and run the Elections App.
 
 
-## Setup
+## The Complete Project Folder Structure
 
-Requires:
+```
+app:
+|── ElectionsApplication.kt
+├── common
+│   ├── Const.kt
+│   ├── NoInternetException.kt
+│   ├── dispatcher
+│   │   ├── DefaultDispatcherProvider.kt
+│   │   └── DispatcherProvider.kt
+│   ├── logger
+│   │   ├── AppLogger.kt
+│   │   └── Logger.kt
+│   └── util
+│       ├── Util.kt
+├── data
+│   ├── database
+│   │   ├── DatabaseService.kt
+│   └── repository
+│       └── ElectionsRepository.kt
+├── di
+│   ├── module
+│   │   └── ApplicationModule.kt
+│   └── qualifiers.kt
+├── ui
+│   ├── ElectionsActivity.kt
+│   ├── base
+│   │   ├── CommonUI.kt
+│   │   ├── ScreenDestination.kt
+│   │   ├── ScreenNavigation.kt
+│   │   └── UIState.kt
+│   ├── components
+│   │   ├── ResultItem.kt
+│   │   └── ResultListLayout.kt
+│   ├── screens
+│   │   ├── ResultScreen.kt
+│   │   ├── PopupScreen.kt
+│   ├── theme
+│   │   ├── Color.kt
+│   │   ├── Theme.kt
+│   │   └── Type.kt
+│   └── viewmodels
+│       ├── ElectionsViewModel.kt
 
-- Android Studio Chipmunk or higher
-- [Zoom](https://zoom.us/) or Teams for screensharing
+utilities:
+│   ├── networkhelper
+│   │   ├── NetworkHelper.kt
+│   │   └── NetworkHelperImpl.kt
 
-Notes:
+buildSrc:
+│   ├── Dependencies.kt
+│   ├── Versions.kt 
 
-- In this directory there is a single Android project containing two separate application modules, `appWithComposeUI` and `appWithXmlUI`. **You must choose whether to use Jetpack Compose or XML layouts, and use the appropriate module to complete the assessment.**
-- The project also includes an `api` module containing shared code used by both targets. As part of completing the tasks, you may make changes inside this module if you wish.
-- All targets also include unit tests, which can be run by selecting the correct folder in the project hierarchy menu, right clicking and choosing _'Run Tests in...'_.
-
-**Please verify that you can open the project in Android Studio, build the application, and run the unit tests in advance of your booked assessment time.**
-
-## Assessment Time: 3 Days
-
-## Assessment Process
-
-In the assessment process, after making changes in your github repository, we will ask you to share your working environment and talk through the following with us in a recorded video (shared via youtube link (uploaded as 'PRIVATE and reachable only via link' may be):
-
-- What does this system do? What are its key features?
-- New Feature requests! - The election product team have some feature requests that we would like you to take a look at. They can be found in `Tasks.md`.
-- Please create a github repository of your own and share your assignment as a repository, detail the code changes in readme file and share the youtube link within readme.
-
-If you have any problems with any of the above, please get in touch via your recruitment contact.
-
-Please feel free to send the assessment response as a link via recruitment contact
+```
+<div style="display: flex; justify-content: space-between;">
+</div>
