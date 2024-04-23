@@ -79,7 +79,8 @@ app:
 │       ├── Util.kt
 ├── data
 │   ├── database
-│   │   ├── DatabaseService.kt
+│   │   ├── ElectionDatabase.kt
+    │   ├── ElectionDatabaseService.kt
 │   └── repository
 │       └── ElectionsRepository.kt
 ├── di
@@ -104,7 +105,14 @@ app:
 │   │   ├── Theme.kt
 │   │   └── Type.kt
 │   └── viewmodels
-│       ├── ElectionsViewModel.kt
+│       ├── ElectionResultViewModel.kt
+│       ├── ElectionResultViewModelState.kt
+
+api:
+│   ├── internal
+│   │   ├── JSONResultsRepository.kt
+│   ├── ResultsRepository.kt
+│   ├── ResultsService.kt 
 
 utilities:
 │   ├── networkhelper
@@ -117,4 +125,9 @@ buildSrc:
 
 ```
 <div style="display: flex; justify-content: space-between;">
+    <img alt="cake list"  src="https://github.com/genxsolutions/Elections/blob/main/assets/results.png" width="400" height="600">
+    <img alt="description" src="https://github.com/genxsolutions/Elections/blob/main/assets/pull-to-refresh.png" width="400" height="600">
+    <img alt="error" src="https://github.com/genxsolutions/Elections/blob/main/assets/counting-finished.png" width="400" height="600">
+    <img alt="animation" src="https://github.com/genxsolutions/Elections/blob/main/assets/error.png" width="400" height="600">
+    <img alt="pull-to-refresh" src="https://github.com/genxsolutions/Elections/blob/main/assets/no-internet.png" width="400" height="600">
 </div>
