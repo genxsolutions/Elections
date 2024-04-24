@@ -129,9 +129,9 @@ buildSrc:
 
 ```
 <div style="display: flex; justify-content: space-between;">
-    <img alt="cake list"  src="https://github.com/genxsolutions/Elections/blob/main/assets/results.png" width="400" height="650">
-    <img alt="description" src="https://github.com/genxsolutions/Elections/blob/main/assets/pull-to-refresh.png" width="400" height="650">
-    <img alt="error" src="https://github.com/genxsolutions/Elections/blob/main/assets/counting-finished.png" width="400" height="650">
-    <img alt="animation" src="https://github.com/genxsolutions/Elections/blob/main/assets/error.png" width="400" height="650">
-    <img alt="pull-to-refresh" src="https://github.com/genxsolutions/Elections/blob/main/assets/no-internet.png" width="400" height="650">
+    <img alt="poll results"  src="https://github.com/genxsolutions/Elections/blob/main/assets/results.png" width="400" height="650">
+    <img alt="pull to refresh" src="https://github.com/genxsolutions/Elections/blob/main/assets/pull-to-refresh.png" width="400" height="650">
+    <img alt="counting finished" src="https://github.com/genxsolutions/Elections/blob/main/assets/counting-finished.png" width="400" height="650">
+    <img alt="error" src="https://github.com/genxsolutions/Elections/blob/main/assets/error.png" width="400" height="650">
+    <img alt="no internet" src="https://github.com/genxsolutions/Elections/blob/main/assets/no-internet.png" width="400" height="650">
 </div>
