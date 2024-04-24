@@ -114,7 +114,7 @@ fun WinnerBadge() {
             )
         }
         Text(
-            text = "Winner",
+            text = stringResource(R.string.winner),
             style = TextStyle(fontWeight = FontWeight.Bold),
             color = Color.Black,
             modifier = Modifier.padding(start = 4.dp)

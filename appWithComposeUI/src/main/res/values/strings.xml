@@ -13,4 +13,5 @@
     <string name="results_candidate">Candidate: %1$s</string>
     <string name="results_votes">Votes: %1$s</string>
     <string name="counting_finished">Counting Finished</string>
+    <string name="winner">Winner</string>
 </resources>

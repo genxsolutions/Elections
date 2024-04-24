@@ -34,17 +34,17 @@ class ResultsScreenTest {
     }
 
     @Test
-    fun polls_whenResultsLayout_isShown() {
+    fun polls_whenResultsLayout_isShown_whileCounting() {
         composeTestRule.setContent {
             ResultsLayout(
-                results = testResultUiState,
+                results = testResultUiCountingState,
                 itemClicked = {}
             )
         }
 
         composeTestRule
             .onNodeWithText(
-                testResultUiState.results[0].party,
+                testResultUiCountingState.results[1].party,
                 substring = true
             )
             .assertExists()
@@ -53,14 +53,14 @@ class ResultsScreenTest {
         composeTestRule.onNode(hasScrollToNodeAction())
             .performScrollToNode(
                 hasText(
-                    testResultUiState.results[0].candidate,
+                    testResultUiCountingState.results[1].candidate,
                     substring = true
                 )
             )
 
         composeTestRule
             .onNodeWithText(
-                testResultUiState.results[0].votes,
+                testResultUiCountingState.results[1].votes,
                 substring = true
             )
             .assertExists()
@@ -68,6 +68,39 @@ class ResultsScreenTest {
     }
 
     @Test
+    fun polls_whenCountingFinishedLayout_IsShown_CountingFinished() {
+        composeTestRule.setContent {
+            ResultsLayout(
+                results = testResultUiCountingFinishedState,
+                itemClicked = {}
+            )
+        }
+
+        composeTestRule
+            .onNodeWithText(
+               "Winner",
+                substring = true
+            )
+            .assertExists()
+
+        composeTestRule
+            .onNodeWithText(
+                "Counting Finished",
+                substring = true
+            )
+            .assertExists()
+    }
+
+    @Test
+    fun polls_whenCountingFinishedLayout_IsShown_Refresh_Is_Hidden() {
+        composeTestRule.setContent {
+            ResultsLayout(
+                results = testResultUiCountingFinishedState,
+                itemClicked = {}
+            )
+        }
+    }
+        @Test
     fun error_whenShowError_isShown() {
         val errorMessage = "Error Message For You"
 
@@ -84,7 +117,7 @@ class ResultsScreenTest {
 
 }
 
-private val testResultUiState =
+private val testResultUiCountingState =
     ResultScreenUiState(results =
     listOf(
         ResultUiState(party= "party1", candidate = "candidate1", "30", true),
@@ -93,3 +126,5 @@ private val testResultUiState =
     ),
         complete = false
     )
+
+private val testResultUiCountingFinishedState = testResultUiCountingState.copy(complete = true)
