@@ -29,11 +29,13 @@ class ElectionsRepository @Inject constructor(
 
     suspend fun getAllCandidates(): Flow<List<CandidateEntity>> {
         val cachedCandidates = database.getAllCandidates()
+        // try if we can save a network call since candidates do not change during the counting
         return if (cachedCandidates.first().isEmpty()) {
             try {
                 val candidatesEntity = network.allCandidates().map { candidate ->
                     candidate.toCandidateEntity()
                 }
+                // local cache being the single source of truth
                 database.deleteAllAndInsertAll(candidatesEntity)
                 database.getAllCandidates()
             }catch(e: Exception){

@@ -14,6 +14,7 @@ class ElectionsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            // supports light and dark mode
             ElectionAppTheme {
                 Surface {
                     MyNavHost()
