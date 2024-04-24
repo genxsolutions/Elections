@@ -1,9 +1,7 @@
 # ElectionsApp
 This is a mobile client for a mock elections system which could show results pages similar to how BBC News covers elections. Note: If you are not familiar with how elections work in the UK, please see this short BBC video https://www.youtube.com/watch?v=cRxUhGetEPQ
 
-App presents list of candidates with their party name and votes sorted by leading, built with MVVM clean architecture and Jetpack Compose.
-counting results can be refreshed to get the latest data by pressing the refresh button or by pull to refresh. it displays the winner when counting is finished and handles errors gracefully, such as no network connection or other issues.
-
+The app showcases a list of candidates along with their party names and votes, sorted by the leading candidate. It follows the MVVM clean architecture pattern and is built using Jetpack Compose. Users can refresh the counting results to retrieve the latest data by pressing the refresh button or by using the pull-to-refresh gesture. Additionally, the app displays the winner once the counting is finished and gracefully handles errors, including no network connection or other issues.
 
 ## Technologies used
 
