@@ -65,6 +65,20 @@ class ResultsScreenTest {
             )
             .assertExists()
             .assertHasClickAction()
+
+        composeTestRule
+            .onNodeWithText(
+                "Winner",
+                substring = true
+            )
+            .assertDoesNotExist()
+
+        composeTestRule
+            .onNodeWithText(
+                "Counting Finished",
+                substring = true
+            )
+            .assertDoesNotExist()
     }
 
     @Test
