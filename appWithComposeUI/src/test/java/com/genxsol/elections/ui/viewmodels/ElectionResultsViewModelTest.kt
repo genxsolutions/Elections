@@ -102,6 +102,7 @@ class ElectionResultsViewModelTest {
                 cancelAndIgnoreRemainingEvents()
             }
             verify(electionsRepository, Mockito.times(1)).getPollResults()
+            verify(electionsRepository, Mockito.times(1)).getAllCandidates()
         }
     }
 
