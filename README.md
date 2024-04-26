@@ -53,7 +53,8 @@ The app showcases a list of candidates along with their party names and votes, s
 - Dagger Hilt for Dependency Injection: Simplifies dependency injection
 - Mockito, JUnit, Turbine for Testing: Ensures the reliability of the application
 
-## short video (coming soon)
+## short video 
+https://youtu.be/NsOttEiToh8
 
 ## How to Run the Project
 
