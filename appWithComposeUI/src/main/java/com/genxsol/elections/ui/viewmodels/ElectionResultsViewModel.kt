@@ -1,6 +1,5 @@
 package com.genxsol.elections.ui.viewmodels
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.utilities.NetworkHelper
@@ -20,7 +19,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ElectionResultsViewModel @Inject constructor(
-    private val savedStateHandle: SavedStateHandle,
     private val electionsRepository: ElectionsRepository,
     private val dispatcherProvider: DispatcherProvider,
     private val networkHelper: NetworkHelper,
@@ -62,13 +60,13 @@ class ElectionResultsViewModel @Inject constructor(
         }
     }
 
-    private fun handleFetchError(throwable: Throwable) {
-        _uiState.value = UIState.Failure(throwable = throwable)
+    private suspend fun handleFetchError(throwable: Throwable) {
+        _uiState.emit(UIState.Failure(throwable = throwable))
         logger.d("ElectionResultViewModel", "Error")
     }
 
-    private fun handleFetchSuccess(resultScreenUiState: ResultScreenUiState) {
-        _uiState.value = UIState.Success(resultScreenUiState)
+    private suspend fun handleFetchSuccess(resultScreenUiState: ResultScreenUiState) {
+        _uiState.emit( UIState.Success(resultScreenUiState))
         logger.d("ElectionResultViewModel", "Success")
     }
 }
