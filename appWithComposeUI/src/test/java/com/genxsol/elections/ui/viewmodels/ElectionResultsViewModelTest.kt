@@ -1,6 +1,5 @@
 package com.genxsol.elections.ui.viewmodels
 
-import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
 import com.example.utilities.NetworkHelper
 import com.genxsol.elections.api.Result
@@ -88,10 +87,7 @@ class ElectionResultsViewModelTest {
                 .`when`(electionsRepository)
                 .getAllCandidates()
 
-            val savedStateHandle = SavedStateHandle()
-
             val viewModel = ElectionResultsViewModel(
-                savedStateHandle,
                 electionsRepository,
                 dispatcherProvider,
                 networkHelper,

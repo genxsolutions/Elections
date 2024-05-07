@@ -1,5 +1,6 @@
 package uk.com.genxsol.elections.api.internal
 
+import com.genxsol.elections.api.internal.JSONResultsRepository
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Before

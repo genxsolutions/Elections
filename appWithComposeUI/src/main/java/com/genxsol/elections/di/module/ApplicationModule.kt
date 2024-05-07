@@ -15,6 +15,8 @@ import com.genxsol.elections.common.logger.Logger
 import com.genxsol.elections.data.database.DatabaseService
 import com.genxsol.elections.data.database.ElectionDatabase
 import com.genxsol.elections.data.database.ElectionDatabaseService
+import com.genxsol.elections.data.repository.ElectionsRepository
+import com.genxsol.elections.data.repository.ElectionsRepositoryImpl
 import com.genxsol.elections.di.DbName
 import dagger.Module
 import dagger.Provides
@@ -40,6 +42,14 @@ class ApplicationModule {
     @Provides
     @Singleton
     fun provideDispatcher(): DispatcherProvider = DefaultDispatcherProvider()
+
+    @Provides
+    @Singleton
+    fun provideElectionsRepository(
+        resultsService: ResultsService,
+        databaseService: DatabaseService
+    ): ElectionsRepository =
+        ElectionsRepositoryImpl(resultsService, databaseService)
 
     @Provides
     @Singleton

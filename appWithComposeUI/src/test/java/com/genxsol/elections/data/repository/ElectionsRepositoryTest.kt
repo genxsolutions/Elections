@@ -32,7 +32,7 @@ class ElectionsRepositoryTest {
 
     @Before
     fun setUp() {
-        electionsRepository = ElectionsRepository(apiInterface, databaseService)
+        electionsRepository = ElectionsRepositoryImpl(apiInterface, databaseService)
     }
 
     @Test
@@ -84,9 +84,7 @@ class ElectionsRepositoryTest {
         // Mock network error response
         `when`(apiInterface.allCandidates()).thenThrow(Exception("Network error"))
 
-        // Call the repository method
-        val repository = ElectionsRepository(apiInterface, databaseService)
-        repository.getAllCandidates()
+        electionsRepository.getAllCandidates()
     }
 
 }
