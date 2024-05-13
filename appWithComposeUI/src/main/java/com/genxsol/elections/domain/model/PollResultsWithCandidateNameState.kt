@@ -1,4 +1,4 @@
-package com.genxsol.elections.domain
+package com.genxsol.elections.domain.model
 
 import com.genxsol.elections.ui.base.ResultItemUiState
 import com.genxsol.elections.api.Results

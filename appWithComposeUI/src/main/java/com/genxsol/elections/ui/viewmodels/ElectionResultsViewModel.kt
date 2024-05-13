@@ -2,12 +2,12 @@ package com.genxsol.elections.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.genxsol.networkStatus.domain.NetworkMonitorUseCase
+import com.genxsol.networkStatus.domain.usecase.NetworkMonitorUseCase
 import com.genxsol.networkStatus.domain.NetworkState
 import com.genxsol.elections.common.NoInternetException
 import com.genxsol.elections.common.dispatcher.DispatcherProvider
 import com.genxsol.elections.common.logger.Logger
-import com.genxsol.elections.domain.PollResultsWithCandidateNameUseCase
+import com.genxsol.elections.domain.usecase.PollResultsWithCandidateNameUseCase
 import com.genxsol.elections.ui.base.ResultScreenUiState
 import com.genxsol.elections.ui.base.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel

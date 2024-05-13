@@ -1,5 +1,7 @@
-package com.genxsol.networkStatus.domain
+package com.genxsol.networkStatus.domain.usecase
 
+import com.genxsol.networkStatus.domain.NetworkRepository
+import com.genxsol.networkStatus.domain.NetworkState
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

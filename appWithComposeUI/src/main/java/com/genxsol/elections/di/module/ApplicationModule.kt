@@ -12,10 +12,10 @@ import com.genxsol.elections.common.logger.Logger
 import com.genxsol.elections.data.database.DatabaseService
 import com.genxsol.elections.data.database.ElectionDatabase
 import com.genxsol.elections.data.database.ElectionDatabaseService
-import com.genxsol.elections.data.repository.ElectionsRepository
+import com.genxsol.elections.domain.model.ElectionsRepository
 import com.genxsol.elections.data.repository.ElectionsRepositoryImpl
 import com.genxsol.elections.di.DbName
-import com.genxsol.elections.domain.PollResultsWithCandidateNameUseCase
+import com.genxsol.elections.domain.usecase.PollResultsWithCandidateNameUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -3,7 +3,7 @@ package com.genxsol.networkStatus.di
 import android.content.Context
 import com.genxsol.networkStatus.domain.NetworkRepository
 import com.genxsol.networkStatus.data.repository.NetworkRepositoryImpl
-import com.genxsol.networkStatus.domain.NetworkMonitorUseCase
+import com.genxsol.networkStatus.domain.usecase.NetworkMonitorUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

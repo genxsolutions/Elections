@@ -1,4 +1,4 @@
-package com.genxsol.elections.data.repository
+package com.genxsol.elections.domain.model
 
 import com.genxsol.elections.api.Results
 import com.genxsol.elections.data.database.entity.CandidateEntity

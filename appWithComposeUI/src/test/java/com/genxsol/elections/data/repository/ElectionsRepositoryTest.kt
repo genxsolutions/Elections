@@ -6,6 +6,7 @@ import com.genxsol.elections.api.Results
 import com.genxsol.elections.api.ResultsService
 import com.genxsol.elections.data.database.DatabaseService
 import com.genxsol.elections.data.database.entity.CandidateEntity
+import com.genxsol.elections.domain.model.ElectionsRepository
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking

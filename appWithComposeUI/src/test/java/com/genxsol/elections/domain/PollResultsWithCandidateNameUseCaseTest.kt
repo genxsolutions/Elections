@@ -4,7 +4,8 @@ import com.genxsol.elections.api.Results
 import com.genxsol.elections.api.Result
 import com.genxsol.elections.common.dispatcher.TestDispatcherProvider
 import com.genxsol.elections.data.database.entity.CandidateEntity
-import com.genxsol.elections.data.repository.ElectionsRepository
+import com.genxsol.elections.domain.model.ElectionsRepository
+import com.genxsol.elections.domain.usecase.PollResultsWithCandidateNameUseCase
 import com.genxsol.elections.ui.base.ResultItemUiState
 import com.genxsol.elections.ui.base.ResultScreenUiState
 import junit.framework.TestCase.assertEquals
