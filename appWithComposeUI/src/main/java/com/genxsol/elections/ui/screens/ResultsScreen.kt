@@ -38,7 +38,6 @@ fun ResultsScreen(
     itemClicked: (String) -> Unit
 ) {
     val uiState: UIState<ResultScreenUiState> by electionResultsViewModel.uiState.collectAsStateWithLifecycle()
-
     var isRefreshing by rememberSaveable { mutableStateOf(false) }
     var countingFinished by rememberSaveable { mutableStateOf(false) }
     val pullRefreshState = rememberPullRefreshState(
@@ -50,6 +49,7 @@ fun ResultsScreen(
             }
         }
     )
+
     Scaffold(
         floatingActionButton = {
             if (uiState is UIState.Success && (uiState as UIState.Success).data.complete) {

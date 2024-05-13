@@ -9,7 +9,7 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performScrollToNode
 import com.genxsol.elections.ui.base.ResultScreenUiState
-import com.genxsol.elections.ui.base.ResultUiState
+import com.genxsol.elections.ui.base.ResultItemUiState
 import com.genxsol.elections.ui.base.ShowError
 import com.genxsol.elections.ui.base.ShowLoading
 import com.genxsol.elections.ui.components.ResultsLayout
@@ -134,9 +134,9 @@ class ResultsScreenTest {
 private val testResultUiCountingState =
     ResultScreenUiState(results =
     listOf(
-        ResultUiState(party= "party1", candidate = "candidate1", "30", true),
-        ResultUiState(party= "party2", candidate = "candidate2", "20", false),
-        ResultUiState(party= "party3", candidate = "candidate3", "10", false),
+        ResultItemUiState(party= "party1", candidate = "candidate1", "30", true),
+        ResultItemUiState(party= "party2", candidate = "candidate2", "20", false),
+        ResultItemUiState(party= "party3", candidate = "candidate3", "10", false),
     ),
         complete = false
     )

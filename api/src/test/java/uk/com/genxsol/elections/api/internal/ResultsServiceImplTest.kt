@@ -1,10 +1,14 @@
 package uk.com.genxsol.elections.api.internal
 
+import com.genxsol.elections.api.Candidate
+import com.genxsol.elections.api.Results
+import com.genxsol.elections.api.Result
+import com.genxsol.elections.api.ResultsRepository
+import com.genxsol.elections.api.ResultsServiceImpl
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import uk.com.genxsol.elections.api.*
 
 class ResultsServiceImplTest {
 

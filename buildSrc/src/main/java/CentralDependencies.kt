@@ -66,6 +66,6 @@ object CentralDependencies {
 }
 
 object Modules{
-    const val utilities = ":utilities"
+    const val networkStatus = ":networkStatus"
     const val api = ":api"
 }

@@ -16,5 +16,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Elections Assessment"
 include(":appWithComposeUI")
-include(":utilities")
+include(":networkStatus")
 include(":api")

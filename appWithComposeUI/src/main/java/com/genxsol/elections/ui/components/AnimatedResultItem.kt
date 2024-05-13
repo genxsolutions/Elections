@@ -9,12 +9,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import com.genxsol.elections.ui.base.ResultUiState
+import com.genxsol.elections.ui.base.ResultItemUiState
 
 @ExperimentalAnimationApi
 @Composable
 fun AnimatedResultItem(
-    result: ResultUiState,
+    result: ResultItemUiState,
     complete: Boolean,
     itemClicked: (String) -> Unit
 ) {

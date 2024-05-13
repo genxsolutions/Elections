@@ -32,10 +32,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.genxsol.elections.R
-import com.genxsol.elections.ui.base.ResultUiState
+import com.genxsol.elections.ui.base.ResultItemUiState
 
 @Composable
-fun ResultItem(result: ResultUiState, complete: Boolean, onItemClick: (String) -> Unit) {
+fun ResultItem(result: ResultItemUiState, complete: Boolean, onItemClick: (String) -> Unit) {
 
     Card(
         modifier = Modifier
@@ -125,7 +125,7 @@ fun WinnerBadge() {
 @Preview
 @Composable
 fun ResultItemPreview() {
-    val result = ResultUiState(
+    val result = ResultItemUiState(
         party = "Party ABC",
         candidate = "John Doe",
         votes = "1000",

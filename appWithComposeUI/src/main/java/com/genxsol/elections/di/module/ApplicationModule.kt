@@ -1,10 +1,7 @@
 package com.genxsol.elections.di.module
 
 import android.app.Application
-import android.content.Context
 import androidx.room.Room
-import com.example.utilities.NetworkHelper
-import com.example.utilities.NetworkHelperImpl
 import com.genxsol.elections.api.ResultsService
 import com.genxsol.elections.api.ResultsServiceFactory
 import com.genxsol.elections.common.Const
@@ -18,10 +15,10 @@ import com.genxsol.elections.data.database.ElectionDatabaseService
 import com.genxsol.elections.data.repository.ElectionsRepository
 import com.genxsol.elections.data.repository.ElectionsRepositoryImpl
 import com.genxsol.elections.di.DbName
+import com.genxsol.elections.domain.PollResultsWithCandidateNameUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -45,19 +42,22 @@ class ApplicationModule {
 
     @Provides
     @Singleton
+    fun providePollResultsWithCandidateNameUseCase(
+        electionsRepository: ElectionsRepository,
+        dispatcherProvider: DispatcherProvider
+    ): PollResultsWithCandidateNameUseCase =
+        PollResultsWithCandidateNameUseCase(
+        electionsRepository,
+        dispatcherProvider
+    )
+
+    @Provides
+    @Singleton
     fun provideElectionsRepository(
         resultsService: ResultsService,
         databaseService: DatabaseService
     ): ElectionsRepository =
         ElectionsRepositoryImpl(resultsService, databaseService)
-
-    @Provides
-    @Singleton
-    fun provideNetworkHelper(
-        @ApplicationContext context: Context
-    ): NetworkHelper {
-        return NetworkHelperImpl(context)
-    }
 
     @DbName
     @Provides

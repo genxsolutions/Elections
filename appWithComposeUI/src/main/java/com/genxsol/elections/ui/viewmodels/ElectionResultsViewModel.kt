@@ -2,57 +2,56 @@ package com.genxsol.elections.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.utilities.NetworkHelper
+import com.genxsol.networkStatus.domain.NetworkMonitorUseCase
+import com.genxsol.networkStatus.domain.NetworkState
 import com.genxsol.elections.common.NoInternetException
 import com.genxsol.elections.common.dispatcher.DispatcherProvider
 import com.genxsol.elections.common.logger.Logger
-import com.genxsol.elections.data.repository.ElectionsRepository
+import com.genxsol.elections.domain.PollResultsWithCandidateNameUseCase
 import com.genxsol.elections.ui.base.ResultScreenUiState
 import com.genxsol.elections.ui.base.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ElectionResultsViewModel @Inject constructor(
-    private val electionsRepository: ElectionsRepository,
-    private val dispatcherProvider: DispatcherProvider,
-    private val networkHelper: NetworkHelper,
+    private val pollResultsWithCandidateNameUseCase: PollResultsWithCandidateNameUseCase,
+    private val networkMonitorUseCase: NetworkMonitorUseCase,
     private val logger: Logger,
+    private val dispatcherProvider: DispatcherProvider
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<UIState<ResultScreenUiState>>(UIState.Loading)
     val uiState: StateFlow<UIState<ResultScreenUiState>> = _uiState
 
     init {
-        fetchPollResults()
+        observeNetworkConnectivityAndLoad()
+    }
+
+    private fun observeNetworkConnectivityAndLoad() {
+        viewModelScope.launch {
+            networkMonitorUseCase.observeNetworkState()
+                .collect {
+                    when (it) {
+                        NetworkState.Available -> fetchPollResultData()
+                        NetworkState.Lost -> handleFetchError(NoInternetException())
+                    }
+                }
+        }
     }
 
     fun fetchPollResults() {
-        fetchPollResultData()
+        observeNetworkConnectivityAndLoad()
     }
 
     private fun fetchPollResultData() {
         viewModelScope.launch(dispatcherProvider.io) {
-            if (!networkHelper.isNetworkConnected()) {
-                handleFetchError( NoInternetException() )
-                return@launch
-            }
-
             try {
-                // concurrent loading to give results
-                val candidates = async { electionsRepository.getAllCandidates() }
-                val pollResults = async { electionsRepository.getPollResults() }
-
-                ElectionResultsViewModelState(
-                    pollResults.await(),
-                    candidates.await()
-                ).toResultUiState()
-                    .catch { throwable -> handleFetchError(throwable) }
+                // do not want to invoke automatically
+                pollResultsWithCandidateNameUseCase.execute()
                     .collect { handleFetchSuccess(it) }
             } catch (e: Exception) {
                 handleFetchError(e)
@@ -66,7 +65,7 @@ class ElectionResultsViewModel @Inject constructor(
     }
 
     private suspend fun handleFetchSuccess(resultScreenUiState: ResultScreenUiState) {
-        _uiState.emit( UIState.Success(resultScreenUiState))
+        _uiState.emit(UIState.Success(resultScreenUiState))
         logger.d("ElectionResultViewModel", "Success")
     }
 }

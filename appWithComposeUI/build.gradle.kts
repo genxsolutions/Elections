@@ -51,7 +51,7 @@ android {
 
 dependencies {
     // modules
-    implementation(project(Modules.utilities))
+    implementation(project(Modules.networkStatus))
     implementation(project(Modules.api))
 
     // AndroidX
